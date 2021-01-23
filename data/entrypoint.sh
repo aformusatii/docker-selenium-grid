@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf /tmp/.X20-lock
+
 export DISPLAY=:20
 
 Xvfb :20 &
