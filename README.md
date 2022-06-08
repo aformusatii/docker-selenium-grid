@@ -1,5 +1,5 @@
 # Docker Image for Selenium Grid on Debian
-This repo contains docker file for building an image with Selenium Grid on Debian OS. It also exposes VNC server for debugging browser.
+This repo contains docker file for building an image with Selenium Grid on Debian OS. It also exposes VNC server and noVNC web client for debugging.
 By default it contains only Chrome driver.
 Tested on [ODROID XU4](https://www.hardkernel.com/shop/odroid-xu4-special-price/) ARMv7 platform.
 
@@ -23,7 +23,7 @@ $ sudo docker build -t selenium-grid .
 
 Run standalone image.
 ```sh
-$ sudo docker run -it -d --rm -p 5920:5920 -p 4444:4444 --name seleniumgrid selenium-grid
+$ sudo docker run -it -d --rm -p 5920:5920 -p 4444:4444 -p 6080:6080 --name seleniumgrid selenium-grid
 ```
 
 Run via docker compose.
@@ -38,6 +38,7 @@ services:
     ports:
       - 5920:5920
       - 4444:4444
+      - 6080:6080
     environment:
       TZ: 'Europe/Chisinau'
 ```
